@@ -1,0 +1,28 @@
+spring:
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      percentage: 1
+
+ignore:
+  urls:
+  - /**/*.css
+  - /auth/**
+  - /admin/user/mobile/**
+  - /refresh/**
+  - /swagger-ui.html
+  - /swagger-resources/**
+  - /*/v2/api-docs
+  - /webjars/**
+  - /doc.html
+  - /zipkin/**
+
+swagger:
+  client:
+    - panda-user-service
+    - panda-gen-service
+# 关闭默认路由
+zuul:
+  ignoredServices: '*'

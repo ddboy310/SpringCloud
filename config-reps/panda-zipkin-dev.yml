@@ -1,0 +1,19 @@
+﻿zipkin:   
+  collector:
+    rabbitmq:
+      addresses: panda-rabbitmq
+      port: 5672
+      username: ddboy
+      password: ddboy
+      virtual-host: /
+      queue: zipkin
+  storage:
+    type: mysql
+    StorageComponent: mysql
+
+#关闭验证
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

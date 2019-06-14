@@ -1,0 +1,23 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: panda-user-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: panda-config-server
+      profile: ${spring.profiles.active}
+      label: ${spring.profiles.active}
+      fail-fast: true
+      name: ${spring.application.name}
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://panda-server:8761/eureka/
